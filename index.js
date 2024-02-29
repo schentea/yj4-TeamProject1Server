@@ -23,7 +23,6 @@ app.get("/people", (req, res) => {
     });
 });
 
-const PORT = process.env.PORT || 80;
-app.listen(PORT, () => {
-  console.log(`Server is running on localhost:${PORT}`);
+app.listen(3000, () => {
+  console.log(`Server is running on localhost:3000`);
 });
