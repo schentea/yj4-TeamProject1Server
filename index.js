@@ -24,7 +24,7 @@ app.get("/people", (req, res) => {
 });
 app.get("/test1", (req, res) => {
   fetch(
-    `http://openapi.q-net.or.kr/api/service/rest/InquiryExamQualItemSVC/getList?pageNo=1&numOfRows=10&ServiceKey=vJv0TAir6YZjIhBn8rQnCFZ4fZIbqdoInvJXXddn%2BGVg%2B0SNhr78BxmwWVVsmComWEo6Qmc7fv%2FJlgDNGi4zHA%3D%3D`
+    `http://openapi.q-net.or.kr/api/service/rest/InquiryExamQualItemSVC/getList?pageNo=1&numOfRows=10&ServiceKey=vJv0TAir6YZjIhBn8rQnCFZ4fZIbqdoInvJXXddn+GVg+0SNhr78BxmwWVVsmComWEo6Qmc7fv/JlgDNGi4zHA==`
   )
     .then((res) => res.json())
     .then((data) => {
