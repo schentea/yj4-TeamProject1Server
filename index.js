@@ -22,7 +22,20 @@ app.get("/people", (req, res) => {
       res.status(500).json({ error: "Error fetching data from Neople API" });
     });
 });
-
+app.get("/test1", (req, res) => {
+  fetch(
+    `http://openapi.q-net.or.kr/api/service/rest/InquiryExamQualItemSVC/getList?pageNo=1&numOfRows=10&ServiceKey=vJv0TAir6YZjIhBn8rQnCFZ4fZIbqdoInvJXXddn%2BGVg%2B0SNhr78BxmwWVVsmComWEo6Qmc7fv%2FJlgDNGi4zHA%3D%3D`
+  )
+    .then((res) => res.json())
+    .then((data) => {
+      res.json(data);
+      console.log(data);
+    })
+    .catch((error) => {
+      onsole.error("Error fetching data:", error);
+      res.status(500).json({ error: "Error fetching data from Neople API" });
+    });
+});
 app.listen(3000, () => {
   console.log(`Server is running on localhost:3000`);
 });
