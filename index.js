@@ -36,6 +36,7 @@ app.get("/test1", (req, res) => {
       res.status(500).json({ error: "Error fetching data from Neople API" });
     });
 });
+
 app.listen(3000, () => {
   console.log(`Server is running on localhost:3000`);
 });
