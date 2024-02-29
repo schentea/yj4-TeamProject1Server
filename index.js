@@ -32,7 +32,21 @@ app.get("/test1", (req, res) => {
       console.log(data);
     })
     .catch((error) => {
-      onsole.error("Error fetching data:", error);
+      console.error("Error fetching data:", error);
+      res.status(500).json({ error: "Error fetching data from Neople API" });
+    });
+});
+app.get("/game", (req, res) => {
+  fetch(
+    "https://api.neople.co.kr/df/jobs?apikey=Mw0fYJwiAJL76wBNq1mezxFH01NMosOZ"
+  )
+    .then((res) => res.json())
+    .then((data) => {
+      res.json(data);
+      console.log(data);
+    })
+    .catch((error) => {
+      console.error("Error fetching data:", error);
       res.status(500).json({ error: "Error fetching data from Neople API" });
     });
 });
