@@ -9,9 +9,7 @@ app.get("/", function (req, res) {
 });
 
 app.get("/dong", (req, res) => {
-  fetch(
-    `https://www.daegufood.go.kr/kor/api/tasty.html?mode=json&addr=%EC%A4%91%EA%B5%AC`
-  )
+  fetch(`https://www.daegufood.go.kr/kor/api/tasty.html?mode=json&addr=중구`)
     .then((response) => response.json())
     .then((data) => {
       res.json(data);
