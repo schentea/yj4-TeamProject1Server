@@ -51,19 +51,18 @@ app.get("/game", (req, res) => {
     });
 });
 
-app.get("/dong", (req, res) => {
-  fetch(
-    "https://www.daegufood.go.kr/kor/api/tasty.html?mode=json&addr=%EC%A4%91%EA%B5%AC"
-  )
-    .then((res) => res.json())
-    .then((data) => {
-      res.json(data);
-      console.log(data);
-    })
-    .catch((error) => {
-      console.error("Error fetching data:", error);
-      res.status(500).json({ error: "Error fetching data from Neople API" });
-    });
+app.get("/dong", async (req, res) => {
+  try {
+    const response = await fetch(
+      "https://www.daegufood.go.kr/kor/api/tasty.html?mode=json&addr=%EC%A4%91%EA%B5%AC"
+    );
+    const data = await response.json();
+    res.json(data);
+    console.log(data);
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    res.status(500).json({ error: "Error fetching data from Daegu Food API" });
+  }
 });
 
 app.listen(4000, () => {
