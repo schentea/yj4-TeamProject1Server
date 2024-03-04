@@ -8,9 +8,9 @@ app.get("/", function (req, res) {
   res.send("Hello World");
 });
 
-app.get("/people", (req, res) => {
+app.get("/dong", (req, res) => {
   fetch(
-    `https://c.q-net.or.kr/openapi/Ncs1info/ncsinfo.do?type=json&pageNo=1&numOfRows=10&ServiceKey=GfEBGZl/WVWZaww3GJjoLpRrE++wLFKbom/Sth6vxaX+A8qKV6FBHeMZe0zjSNjGSizunxh5Ylj4ZNegI83s9w==`
+    `https://www.daegufood.go.kr/kor/api/tasty.html?mode=json&addr=%EC%A4%91%EA%B5%AC`
   )
     .then((response) => response.json())
     .then((data) => {
@@ -49,20 +49,6 @@ app.get("/game", (req, res) => {
       console.error("Error fetching data:", error);
       res.status(500).json({ error: "Error fetching data from Neople API" });
     });
-});
-
-app.get("/dong", (req, res) => {
-  try {
-    const response = fetch(
-      "https://www.daegufood.go.kr/kor/api/tasty.html?mode=json&addr=%EC%A4%91%EA%B5%AC"
-    );
-    const data = response.json();
-    res.json(data);
-    console.log(data);
-  } catch (error) {
-    console.error("Error fetching data:", error);
-    res.status(500).json({ error: "Error fetching data from Daegu Food API" });
-  }
 });
 
 app.listen(4000, () => {
