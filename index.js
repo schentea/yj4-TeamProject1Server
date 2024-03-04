@@ -8,11 +8,11 @@ app.use(cors());
 app.get("/", function (req, res) {
   res.send("Hello World");
 });
-
-app.get("/dong", async (req, res) => {
+//www.daegufood.go.kr/kor/api/tasty.html?mode=json&addr=%EC%A4%91%EA%B5%AC
+https: app.get("/dong", async (req, res) => {
   try {
     const response = await fetch(
-      `https://www.daegufood.go.kr/kor/api/tasty.html?mode=json&addr=중구`
+      `https://www.daegufood.go.kr/kor/api/tasty.html?mode=json&addr=%EC%A4%91%EA%B5%AC`
     );
     const data = await response.json();
     res.json(data);
