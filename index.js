@@ -51,6 +51,21 @@ app.get("/game", (req, res) => {
     });
 });
 
+app.get("/dong", (req, res) => {
+  fetch(
+    "https://www.daegufood.go.kr/kor/api/tasty.html?mode=json&addr=%EC%A4%91%EA%B5%AC"
+  )
+    .then((res) => res.json())
+    .then((data) => {
+      res.json(data);
+      console.log(data);
+    })
+    .catch((error) => {
+      console.error("Error fetching data:", error);
+      res.status(500).json({ error: "Error fetching data from Neople API" });
+    });
+});
+
 app.listen(4000, () => {
   console.log(`Server is running on localhost:4000`);
 });
