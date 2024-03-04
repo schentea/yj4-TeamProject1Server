@@ -51,12 +51,12 @@ app.get("/game", (req, res) => {
     });
 });
 
-app.get("/dong", async (req, res) => {
+app.get("/dong", (req, res) => {
   try {
-    const response = await fetch(
+    const response = fetch(
       "https://www.daegufood.go.kr/kor/api/tasty.html?mode=json&addr=%EC%A4%91%EA%B5%AC"
     );
-    const data = await response.json();
+    const data = response.json();
     res.json(data);
     console.log(data);
   } catch (error) {
