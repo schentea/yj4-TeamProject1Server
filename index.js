@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const fetch = require("node-fetch");
+
 const app = express();
 
 app.use(cors());
@@ -8,11 +8,11 @@ app.use(cors());
 app.get("/", function (req, res) {
   res.send("Hello World");
 });
-//www.daegufood.go.kr/kor/api/tasty.html?mode=json&addr=%EC%A4%91%EA%B5%AC
-https: app.get("/dong", async (req, res) => {
+app.get("/dong", async (req, res) => {
   try {
-    const response = await fetch(
-      `https://www.daegufood.go.kr/kor/api/tasty.html?mode=json&addr=%EC%A4%91%EA%B5%AC`
+    const fetch = await import("node-fetch"); // 동적 import() 사용
+    const response = await fetch.default(
+      `https://www.daegufood.go.kr/kor/api/tasty.html?mode=json&addr=중구`
     );
     const data = await response.json();
     res.json(data);
